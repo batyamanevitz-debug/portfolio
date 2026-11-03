@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>בתיה מנביץ · תיק עבודות</title>
+<meta name="description" content="תיק העבודות של בתיה מנביץ – יוצרת וידאו, תוכן AI ודפי נחיתה: סרטוני תדמית וקידום ואתרים.">
+<meta property="og:title" content="בתיה מנביץ · תיק עבודות">
+<meta property="og:description" content="יוצרת וידאו, תוכן AI ודפי נחיתה">
+<meta property="og:image" content="media/showreel.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23140d07' stroke='%23d4af37' stroke-width='4'/%3E%3Ctext x='32' y='43' font-size='30' font-weight='900' text-anchor='middle' fill='%23d4af37' font-family='Arial'%3EB%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --line: rgba(212,175,55,0.22); --line2: rgba(212,175,55,0.45);
+    --text: #fdfbf7; --muted: #bdb3a2; --gold: #d4af37; --gold-l: #f3e5ab;
+    --goldtext: linear-gradient(135deg, #fff6d8 0%, #f3e5ab 18%, #d4af37 46%, #aa7c11 72%, #f3e7c4 100%);
+    --goldbg: linear-gradient(135deg, #f3e7c4 0%, #d4af37 45%, #aa7c11 80%, #8a6410 100%);
+    --card: linear-gradient(180deg, rgba(35,24,15,0.88), rgba(20,13,7,0.88));
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; color: var(--text); font-family: Heebo, Arial, sans-serif; line-height: 1.6;
+    background: radial-gradient(circle at 50% 0%, #2b1c0d 0%, #140d07 38%, #070402 100%) fixed; }
+  body::before { content: ''; position: fixed; inset: 0; pointer-events: none; opacity: .5;
+    background-image: radial-gradient(rgba(212,175,55,0.09) 1.5px, transparent 1.5px); background-size: 44px 44px; }
+  a { color: inherit; }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; position: relative; }
+  .gold { background: var(--goldtext); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(12px); background: rgba(11,7,4,0.72); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: 12px; }
+  nav .brand { font-weight: 900; font-size: 20px; text-decoration: none; white-space: nowrap; }
+  nav .links { display: flex; gap: 18px; font-size: 15px; color: var(--muted); }
+  nav .links a { text-decoration: none; white-space: nowrap; }
+  nav .links a:hover { color: var(--gold-l); }
+
+  /* הטקסט והסרטון כקבוצה אחת באמצע – עם רווח שווה מימין ומשמאל */
+  .hero { display: flex; justify-content: center; align-items: center; gap: clamp(32px, 5vw, 64px); padding: 56px 0 30px; }
+  .hero > div:first-child { max-width: 480px; }
+  .hero > div:last-child { width: clamp(240px, 27vw, 320px); flex: none; }
+  .hero h1 { font-size: clamp(46px, 7vw, 80px); font-weight: 900; line-height: 1.02; margin: 0 0 12px; letter-spacing: -1px; }
+  .hero .role { font-size: clamp(21px, 2.6vw, 27px); color: var(--muted); margin: 0 0 30px; }
+  .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 999px; font-weight: 700; font-size: 16px; text-decoration: none; border: 1px solid var(--line2); background: rgba(35,24,15,0.7); transition: transform .15s, border-color .2s; }
+  .btn:hover { transform: translateY(-2px); border-color: var(--gold); }
+  .btn.primary { background: var(--goldbg); color: #1a1208; border: 0; }
+
+  .phone { position: relative; border-radius: 46px; padding: 5px; background: var(--goldbg); box-shadow: 0 40px 90px rgba(0,0,0,0.6), 0 0 60px rgba(212,175,55,0.18); }
+  .phone .inner { border-radius: 42px; background: #0b0805; padding: 10px; }
+  .phone video { display: block; width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 32px; background: #000; }
+  .reel { max-width: 330px; margin: 0 auto; }
+  .sound { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); cursor: pointer; font: inherit; font-weight: 700; font-size: 15px; padding: 10px 20px; border-radius: 999px; background: rgba(11,7,4,0.78); color: var(--gold-l); border: 1px solid var(--line2); backdrop-filter: blur(6px); white-space: nowrap; }
+  .cap { text-align: center; color: var(--muted); font-size: 14px; margin-top: 12px; }
+
+  section { padding: 56px 0 16px; scroll-margin-top: 66px; }
+  /* כותרות הסקשנים באמצע – כדי שהעמוד ייראה סימטרי */
+  .eyebrow { font-size: 14px; letter-spacing: 2px; color: var(--gold); font-weight: 700; text-align: center; }
+  h2 { font-size: clamp(32px, 4.6vw, 46px); font-weight: 900; margin: 2px 0 28px; line-height: 1.15; text-align: center; }
+  h3 { margin: 0; line-height: 1.3; }
+  .muted { color: var(--muted); }
+  .tags { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tag { font-size: 13px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--line2); color: var(--gold-l); }
+  .more { display: flex; gap: 16px; flex-wrap: wrap; font-size: 15px; font-weight: 700; }
+  .more a { color: var(--gold-l); text-decoration: none; }
+  .more a:hover { text-decoration: underline; }
+
+  /* סרטון התדמית – מוצג בגדול */
+  .featured { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 40px; align-items: center; background: var(--card); border: 1px solid var(--line2); border-radius: 32px; padding: 30px; margin-bottom: 26px; }
+  .featured .phone { max-width: 320px; margin: 0 auto; }
+  .featured .badge { display: inline-block; font-size: 13px; font-weight: 700; padding: 4px 14px; border-radius: 999px; background: var(--goldbg); color: #1a1208; margin-bottom: 14px; }
+  .featured h3 { font-size: clamp(26px, 3.4vw, 36px); font-weight: 900; margin-bottom: 10px; }
+  .featured .quote { font-size: clamp(22px, 2.8vw, 30px); font-weight: 800; margin: 0 0 14px; }
+  .featured p { margin: 0 0 18px; }
+
+  .videos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .vcard { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+  .vcard video { width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 16px; background: #000; display: block; }
+  .vcard h3 { font-size: 18px; margin: 6px 4px 0; }
+  .vcard p { margin: 0 4px; font-size: 14.5px; flex: 1; }
+  .vcard .more { margin: 2px 4px 4px; font-size: 14px; }
+
+  .sites { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+  .site { text-decoration: none; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 10px; transition: transform .15s, border-color .2s; display: flex; flex-direction: column; }
+  .site:hover { transform: translateY(-3px); border-color: var(--gold); }
+  .site video { width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 14px; display: block; background: #000; }
+  .site b { display: block; font-size: 17px; margin: 10px 4px 2px; }
+  .site span { display: block; color: var(--muted); font-size: 14px; margin: 0 4px 6px; flex: 1; }
+  .site .go { color: var(--gold-l); font-weight: 700; font-size: 14px; margin: 0 4px 4px; }
+
+  .skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .skill { background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 22px; }
+  .skill h3 { font-size: 18px; color: var(--gold-l); margin-bottom: 14px; }
+
+  .contact { text-align: center; padding: 64px 0 40px; }
+  .contact .btns { justify-content: center; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 26px 0 40px; border-top: 1px solid var(--line); }
+  .foot-link { color: var(--gold-l); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s; }
+  .foot-link:hover { border-bottom-color: var(--gold-l); }
+
+  @media (max-width: 900px) {
+    .videos { grid-template-columns: repeat(2, 1fr); }
+    .sites { grid-template-columns: repeat(2, 1fr); }
+    .skills { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 820px) {
+    .featured { grid-template-columns: 1fr; text-align: center; }
+    .hero { flex-direction: column; text-align: center; gap: 30px; padding-top: 36px; }
+    .hero > div:first-child { max-width: none; }
+    .hero > div:last-child { width: min(330px, 100%); }
+    .hero .btns, .featured .tags, .featured .more { justify-content: center; }
+    .featured { padding: 22px 16px; gap: 24px; }
+    nav .links { gap: 14px; font-size: 14px; }
+  }
+  @media (max-width: 380px) { .videos, .sites { gap: 12px; } }
+
+  /* כפתור הגדלה על כל סרטון + חלון צפייה גדול */
+  .zwrap { position: relative; }
+  /* כפתור עדין: אייקון קטן ושקוף למחצה, שמתבהר רק כשמעבירים עליו את העכבר */
+  .zoom { position: absolute; top: 10px; left: 10px; z-index: 2; cursor: pointer; font: inherit; font-size: 16px; line-height: 1;
+    width: 32px; height: 32px; display: grid; place-items: center; padding: 0; border-radius: 50%;
+    background: rgba(0,0,0,0.28); color: rgba(255,255,255,0.75); border: 0; opacity: 0.45; transition: opacity .2s, background .2s; }
+  .zwrap:hover .zoom, .zoom:focus-visible { opacity: 1; background: rgba(0,0,0,0.5); }
+  @media (hover: none) { .zoom { opacity: 0.6; } }
+  .lb { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center; padding: 16px;
+    background: rgba(5,3,1,0.88); backdrop-filter: blur(10px); }
+  .lb[hidden] { display: none; }
+  .lb video { height: min(92vh, calc((100vw - 32px) * 16 / 9)); aspect-ratio: 9/16; max-width: 100%; border-radius: 24px;
+    background: #000; border: 2px solid var(--line2); box-shadow: 0 30px 90px rgba(0,0,0,0.7), 0 0 60px rgba(212,175,55,0.15); }
+  .lb-close { position: absolute; top: 16px; left: 16px; width: 48px; height: 48px; border-radius: 50%; cursor: pointer; font-size: 22px; font-weight: 700;
+    background: rgba(35,24,15,0.9); color: var(--gold-l); border: 1px solid var(--line2); }
+  .lb-close:hover { border-color: var(--gold); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand gold" href="#top">בתיה מנביץ</a>
+    <div class="links">
+      <a href="#video">סרטונים</a>
+      <a href="#sites">אתרים</a>
+      <a href="#skills">כלים</a>
+      <a href="#contact">צרו קשר</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap" id="top">
+
+  <!-- פתיחה -->
+  <header class="hero">
+    <div>
+      <h1><span class="gold">בתיה מנביץ</span></h1>
+      <p class="role">יוצרת וידאו, תוכן AI ודפי נחיתה</p>
+      <div class="btns">
+        <a class="btn primary" href="#video">לעבודות שלי</a>
+        <a class="btn" href="https://wa.me/972535506375" target="_blank" rel="noopener">וואטסאפ</a>
+      </div>
+    </div>
+    <div>
+      <div class="phone reel">
+        <div class="inner">
+          <video data-zoom id="reel" src="media/showreel.mp4" poster="media/showreel.jpg" autoplay muted loop playsinline preload="metadata"></video>
+        </div>
+        <button class="sound" id="sound" type="button">🔇 הפעלת סאונד</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- סרטונים -->
+  <section id="video">
+    <div class="eyebrow">סרטונים</div>
+    <h2>מודעות וסרטוני <span class="gold">תדמית</span></h2>
+
+    <article class="featured">
+      <div class="phone">
+        <div class="inner"><video data-zoom src="media/promo.mp4" poster="media/promo.jpg" controls playsinline preload="metadata"></video></div>
+      </div>
+      <div>
+        <span class="badge">סרטון תדמית</span>
+        <h3>סרטון תדמית לאתר האישי שלי</h3>
+        <p class="quote">"האתר שלך הוצאה? <span class="gold">השקעה.</span>"</p>
+        <p class="muted">כתבתי תסריט ובחרתי צבעים, מוזיקה וסגנון; את הסרטון בניתי כאנימציה, כולל תלת־ממד.</p>
+        <div class="tags"><span class="tag">יצירת סרטונים</span><span class="tag">Claude Code</span></div>
+      </div>
+    </article>
+
+    <div class="videos">
+      <article class="vcard">
+        <video data-zoom src="media/lavi.mp4" poster="media/lavi.jpg" controls playsinline preload="metadata"></video>
+        <h3>"לביא קטן בשמיים"</h3>
+        <p class="muted">סרטון קידום לרשתות עם מוזיקה, עבור הסופרת ברוריה נוסבוים. את התמונות יצרתי ב-Magnific.</p>
+        <div class="more"><a href="https://youtube.com/shorts/wPgUk59AhzM" target="_blank" rel="noopener">ביוטיוב ←</a></div>
+      </article>
+      <article class="vcard">
+        <video data-zoom src="media/pizza.mp4" poster="media/pizza.jpg" controls playsinline preload="metadata"></video>
+        <h3>סרטון תדמית לאתר הפיצה</h3>
+        <p class="muted">אנימציה, כולל תלת־ממד.</p>
+        <div class="more"><a href="https://youtube.com/shorts/kn7iqCI5uTQ" target="_blank" rel="noopener">ביוטיוב ←</a></div>
+      </article>
+      <article class="vcard">
+        <video data-zoom src="media/adi.mp4" poster="media/adi.jpg" controls playsinline preload="metadata"></video>
+        <h3>סרטון קונספט לאתר של מניקוריסטית</h3>
+        <p class="muted">Adi Nail Atelier</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- אתרים -->
+  <section id="sites">
+    <div class="eyebrow">אתרים</div>
+    <h2>אתרים <span class="gold">שבניתי</span></h2>
+    <div class="sites">
+      <a class="site" href="https://lavi-katan-bashamayim.vercel.app" target="_blank" rel="noopener">
+        <video data-loop src="media/sites/lavi-katan.mp4" poster="media/sites/lavi-katan.jpg" muted loop playsinline preload="none"></video>
+        <b>"לביא קטן בשמיים"</b><span>דף נחיתה לספר של הסופרת ברוריה נוסבוים</span><div class="go">לאתר ←</div>
+      </a>
+      <a class="site" href="https://batyamanevitz-debug.github.io/toli-campaign" target="_blank" rel="noopener">
+        <video data-loop src="media/sites/toli-campaign.mp4" poster="media/sites/toli-campaign.jpg" muted loop playsinline preload="none"></video>
+        <b>קמפיין "תולי"</b><span>אתר בסגנון סיפור בפרקים עם סרטון ומוזיקה, מסך הצבעה, שיתוף לוואטסאפ ולרשתות, ומעבר בין עברית לאנגלית</span><div class="go">לאתר ←</div>
+      </a>
+      <a class="site" href="https://pizza-delivery-ofakim.vercel.app" target="_blank" rel="noopener">
+        <video data-loop src="media/sites/pizza-delivery-ofakim.mp4" poster="media/sites/pizza-delivery-ofakim.jpg" muted loop playsinline preload="none"></video>
+        <b>פיצה בדרום</b><span>דף נחיתה לפיצה במשלוח באופקים, עם סרטונים ואנימציה שזזה עם הגלילה</span><div class="go">לאתר ←</div>
+      </a>
+      <a class="site" href="https://sec-quote-ai.vercel.app" target="_blank" rel="noopener">
+        <video data-loop src="media/sites/secquote.mp4" poster="media/sites/secquote.jpg" muted loop playsinline preload="none"></video>
+        <b>AI SecQuote</b><span>מערכת חכמה להצעות מחיר בסייבר: הרשמה, שאלון אפיון ללקוח, הצעת מחיר שמנוסחת בעזרת AI</span><div class="go">למערכת ←</div>
+      </a>
+      <a class="site" href="https://site-to-reel.vercel.app/" target="_blank" rel="noopener">
+        <video data-loop src="media/sites/site-to-reel.mp4" poster="media/sites/site-to-reel.jpg" muted loop playsinline preload="none"></video>
+        <b>Site → Reel</b><span>כלי שהופך אתר לסרטון רילס: מדביקים לינק ומקבלים סרטון גלילה מוכן להורדה</span><div class="go">לכלי ←</div>
+      </a>
+      <a class="site" href="https://batyamanevitz.lovable.app" target="_blank" rel="noopener">
+        <video data-loop src="media/sites/batya-personal.mp4" poster="media/sites/batya-personal.jpg" muted loop playsinline preload="none"></video>
+        <b>האתר שלי</b><span>batyamanevitz.lovable.app</span><div class="go">לאתר ←</div>
+      </a>
+    </div>
+  </section>
+
+  <!-- יכולות וכלים – כמו בקורות החיים -->
+  <section id="skills">
+    <div class="eyebrow">יכולות וכלים</div>
+    <h2>יכולות <span class="gold">וכלים</span></h2>
+    <div class="skills">
+      <div class="skill">
+        <h3>בניית אתרים</h3>
+        <div class="tags"><span class="tag">Claude Code</span><span class="tag">Lovable</span><span class="tag">אפיון ממשקים</span><span class="tag">העלאת אתרים לאוויר</span></div>
+      </div>
+      <div class="skill">
+        <h3>מדיה ושיווק</h3>
+        <div class="tags"><span class="tag">Magnific</span><span class="tag">יצירת סרטונים</span><span class="tag">Google Analytics</span></div>
+      </div>
+      <div class="skill">
+        <h3>כישורים אישיים</h3>
+        <div class="tags"><span class="tag">למידה מהירה</span><span class="tag">יצירתיות</span><span class="tag">עבודה בצוות</span><span class="tag">הוצאת רעיונות לפועל (End-to-End)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- צרו קשר -->
+  <section class="contact" id="contact">
+    <h2>צרו <span class="gold">קשר</span></h2>
+    <div class="btns">
+      <a class="btn primary" href="https://wa.me/972535506375" target="_blank" rel="noopener">וואטסאפ · 053-550-6375</a>
+      <a class="btn" href="mailto:batyamanevitz@gmail.com">batyamanevitz@gmail.com</a>
+    </div>
+  </section>
+</main>
+
+<footer><a class="foot-link" href="https://batyamanevitz.lovable.app" target="_blank" rel="noopener" title="לאתר שלי">בתיה מנביץ</a> · אופקים · 2026</footer>
+
+<!-- חלון צפייה גדול -->
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="צפייה בסרטון בגדול">
+  <button class="lb-close" id="lbClose" type="button" aria-label="סגירה">✕</button>
+  <video id="lbVideo" controls playsinline></video>
+</div>
+
+<script>
+  // סאונד לשואוריל
+  const reel = document.getElementById('reel');
+  const sound = document.getElementById('sound');
+  sound.addEventListener('click', () => {
+    reel.muted = !reel.muted;
+    if (!reel.muted) { reel.currentTime = 0; reel.play(); }
+    sound.textContent = reel.muted ? '🔇 הפעלת סאונד' : '🔊 השתקה';
+  });
+
+  // הריל של כל אתר מתנגן רק כשהוא על המסך – חוסך טעינה בטלפון
+  const io = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      const v = e.target;
+      if (e.isIntersecting) { v.preload = 'auto'; v.play().catch(() => {}); } else { v.pause(); }
+    }
+  }, {threshold: 0.35});
+  document.querySelectorAll('video[data-loop]').forEach(v => io.observe(v));
+
+  // כשמפעילים סרטון – כל השאר נעצרים, והשואוריל חוזר לשקט
+  const players = document.querySelectorAll('video[controls]');
+  players.forEach(v => v.addEventListener('play', () => {
+    players.forEach(o => { if (o !== v) o.pause(); });
+    reel.muted = true; sound.textContent = '🔇 הפעלת סאונד';
+  }));
+
+  // הגדלה: כפתור על כל סרטון שפותח אותו בגדול באמצע המסך, עם סאונד
+  const lb = document.getElementById('lb');
+  const lbVideo = document.getElementById('lbVideo');
+  let lastFocus = null;
+  function openBig(src, time, poster) {
+    players.forEach(o => o.pause());
+    reel.muted = true; sound.textContent = '🔇 הפעלת סאונד';
+    lastFocus = document.activeElement;
+    lbVideo.src = src; lbVideo.poster = poster || '';
+    lbVideo.muted = false;
+    lb.hidden = false;
+    document.body.style.overflow = 'hidden';
+    lbVideo.addEventListener('loadedmetadata', () => { lbVideo.currentTime = time || 0; lbVideo.play().catch(() => {}); }, {once: true});
+    document.getElementById('lbClose').focus();
+  }
+  function closeBig() {
+    lbVideo.pause(); lbVideo.removeAttribute('src'); lbVideo.load();
+    lb.hidden = true;
+    document.body.style.overflow = '';
+    lastFocus?.focus();
+  }
+  document.querySelectorAll('video[data-zoom]').forEach(v => {
+    const wrap = document.createElement('div');
+    wrap.className = 'zwrap';
+    v.parentNode.insertBefore(wrap, v);
+    wrap.appendChild(v);
+    const btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'zoom'; btn.textContent = '⤢'; btn.title = 'הגדלה';
+    btn.setAttribute('aria-label', 'הגדלת הסרטון');
+    btn.addEventListener('click', () => openBig(v.currentSrc || v.src, v === reel ? 0 : v.currentTime, v.poster));
+    wrap.appendChild(btn);
+  });
+  document.getElementById('lbClose').addEventListener('click', closeBig);
+  lb.addEventListener('click', (e) => { if (e.target === lb) closeBig(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !lb.hidden) closeBig(); });
+
+  // כפתור "מסך מלא" של הנגן: אם הדפדפן חוסם מסך מלא – פותחים במקום זה את חלון הצפייה הגדול
+  document.addEventListener('fullscreenerror', (e) => {
+    const v = e.target;
+    if (v instanceof HTMLVideoElement && v !== lbVideo) openBig(v.currentSrc || v.src, v.currentTime, v.poster);
+  });
+</script>
+</body>
+</html>
