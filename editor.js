@@ -466,7 +466,12 @@
     } else if (n.type === 'menu') {
       pb.append(fieldEl('פריטי התפריט', listEditor(f, 'items', true)));
     } else if (n.type === 'listing') {
-      pb.append(fieldEl('מה מוצג', segBtns(LISTINGS.map(([k, l]) => [k, l]), p.source, (v) => change(f.doc, () => { p.source = v; }, { replace: n.id }))),
+      pb.append(fieldEl('מה מוצג', segBtns(LISTINGS.map(([k, l]) => [k, l]), p.source, (v) => {
+        if (v === p.source) return;
+        const name = (x) => (LISTINGS.find(([k]) => k === x) || [, x])[1];
+        if (!confirm(`להחליף את מה שמוצג כאן מ"${name(p.source)}" ל"${name(v)}"?`)) return;
+        change(f.doc, () => { p.source = v; }, { replace: n.id });
+      })),
         h('div', { class: 'pnote' }, 'הכרטיסים עצמם (שם, תיאור, סרטון) נערכים ב', h('a', { href: 'admin.html?view=' + ({ featured: 'video', 'featured-site': 'site' }[p.source] || p.source) }, 'ניהול התוכן'), '. כאן משנים איפה הרשימה מופיעה ואיך היא מסודרת (בלשונית "עיצוב ופריסה").'));
     } else if (n.type === 'section' || n.type === 'container') {
       pb.append(fieldEl('שם (רק בעורך)', (() => { const el = h('input', { type: 'text' }); el.value = n.name || ''; el.addEventListener('change', () => change(f.doc, () => { n.name = el.value.trim().slice(0, 40) || undefined; }, { css: true, keepPanel: true })); return el; })()));
