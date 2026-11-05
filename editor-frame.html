@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>תצוגת עריכה</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<style id="node-css"></style>
+<style>
+  /* מסגרות בחירה – רק בתצוגת העריכה */
+  html { scroll-behavior: auto; }
+  #app [data-nid] { cursor: default; }
+  #app [data-nid]:empty { min-height: 56px; outline: 1px dashed rgba(255,255,255,.35); outline-offset: -1px; }
+  .ed-box { position: absolute; pointer-events: none; z-index: 9998; border: 2px solid #3b82f6; border-radius: 2px; }
+  .ed-box.hover { border: 1px dashed rgba(96,165,250,.9); }
+  .ed-tag { position: absolute; top: -22px; right: -2px; background: #3b82f6; color: #fff; font: 600 11.5px/1 system-ui, Arial, sans-serif; padding: 5px 7px; border-radius: 4px 4px 0 0; white-space: nowrap; direction: rtl; }
+  .ed-box.below .ed-tag { top: auto; bottom: -22px; border-radius: 0 0 4px 4px; }
+  .ed-empty { padding: 60px 16px; text-align: center; color: #bdb3a2; font: 16px system-ui, Arial, sans-serif; border: 2px dashed rgba(212,175,55,.35); margin: 30px 16px; border-radius: 16px; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div class="lb" id="lb" hidden><button class="lb-close" id="lbClose" type="button">✕</button><video id="lbVideo"></video></div>
+<script src="site.js"></script>
+<script>
+(function () {
+  const app = document.getElementById('app');
+  const parentWin = window.parent;
+  const send = (m) => parentWin.postMessage(m, location.origin);
+  const sel = document.createElement('div'); sel.className = 'ed-box'; sel.hidden = true; sel.innerHTML = '<span class="ed-tag"></span>';
+  const hov = document.createElement('div'); hov.className = 'ed-box hover'; hov.hidden = true;
+  document.body.append(sel, hov);
+  let selectedId = null, selLabel = '';
+
+  function place(box, el) {
+    if (!el) { box.hidden = true; return; }
+    const r = el.getBoundingClientRect();
+    box.hidden = false;
+    box.style.top = (r.top + scrollY) + 'px'; box.style.left = (r.left + scrollX) + 'px';
+    box.style.width = r.width + 'px'; box.style.height = Math.max(r.height, 4) + 'px';
+    box.classList.toggle('below', r.top < 26);
+  }
+  const elOf = (id) => id ? app.querySelector(`[data-nid="${CSS.escape(id)}"]`) : null;
+  function redraw() { place(sel, elOf(selectedId)); sel.querySelector('.ed-tag').textContent = selLabel; }
+
+  // לחיצה רק בוחרת: עוצרים קישורים, טפסים, וידאו ופופאפים
+  const block = (e) => {
+    if (!app.contains(e.target)) return;
+    e.preventDefault(); e.stopPropagation();
+  };
+  ['click', 'auxclick', 'dblclick', 'submit', 'mousedown', 'pointerdown', 'touchstart'].forEach((t) => window.addEventListener(t, (e) => {
+    if (!app.contains(e.target)) return;
+    if (t === 'click') {
+      const el = e.target.closest('[data-nid]');
+      if (el) send({ t: 'select', id: el.dataset.nid });
+    }
+    if (t === 'dblclick') { const el = e.target.closest('[data-nid]'); if (el) send({ t: 'dblclick', id: el.dataset.nid }); }
+    block(e);
+  }, true));
+  window.addEventListener('keydown', (e) => {
+    if ((e.ctrlKey || e.metaKey) && ['z', 'y'].includes(e.key.toLowerCase())) { e.preventDefault(); send({ t: 'key', key: e.key.toLowerCase(), shift: e.shiftKey }); }
+    if (e.key === 'Delete' && !/INPUT|TEXTAREA/.test(document.activeElement.tagName)) send({ t: 'key', key: 'delete' });
+  }, true);
+  app.addEventListener('mouseover', (e) => { const el = e.target.closest('[data-nid]'); place(hov, el && el.dataset.nid !== selectedId ? el : null); });
+  app.addEventListener('mouseleave', () => place(hov, null));
+  window.addEventListener('scroll', redraw, { passive: true });
+  window.addEventListener('resize', redraw);
+  document.querySelectorAll('dialog[open]').forEach((d) => d.close());
+
+  function mountAll(data, css) {
+    const r = Site.renderPage(data);
+    document.getElementById('node-css').textContent = css != null ? css : r.css;
+    app.innerHTML = r.html;
+    if (!data.docs.home || !data.docs.home.nodes.length) {
+      const main = app.querySelector('main');
+      if (main) main.innerHTML = '<div class="ed-empty">העמוד ריק — הוסיפו אזור מלשונית "הוספה"</div>';
+    }
+    Site.initRuntime(app, { edit: true });
+    app.querySelectorAll('video').forEach((v) => { v.removeAttribute('controls'); });
+    redraw();
+  }
+  window.addEventListener('message', (e) => {
+    if (e.origin !== location.origin || e.source !== parentWin) return;
+    const m = e.data || {};
+    if (m.t === 'full') mountAll(m.data, m.css);
+    if (m.t === 'css') { document.getElementById('node-css').textContent = m.css; requestAnimationFrame(redraw); }
+    if (m.t === 'replace') {
+      const el = elOf(m.id);
+      if (!el) return;
+      const tmp = document.createElement('div'); tmp.innerHTML = m.html;
+      const fresh = tmp.firstElementChild; if (!fresh) return;
+      el.replaceWith(fresh);
+      Site.initRuntime(app, { edit: true });
+      app.querySelectorAll('video').forEach((v) => v.removeAttribute('controls'));
+      requestAnimationFrame(redraw);
+    }
+    if (m.t === 'select') {
+      selectedId = m.id; selLabel = m.label || '';
+      redraw();
+      const el = elOf(m.id);
+      if (el && m.scroll) { const r = el.getBoundingClientRect(); if (r.top < 0 || r.bottom > innerHeight) el.scrollIntoView({ block: 'center' }); }
+    }
+  });
+  send({ t: 'ready' });
+})();
+</script>
+</body>
+</html>

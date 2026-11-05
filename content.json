@@ -1,0 +1,716 @@
+{
+ "docs": {
+  "footer": {
+   "id": "footer",
+   "kind": "footer",
+   "nodes": [
+    {
+     "id": "foot",
+     "tag": "footer",
+     "name": "פוטר",
+     "type": "section",
+     "children": [
+      {
+       "id": "foot-wrap",
+       "type": "container",
+       "children": [
+        {
+         "id": "foot-text",
+         "type": "text",
+         "props": {
+          "tag": "div",
+          "html": "<a class=\"foot-link\" href=\"https://batyamanevitz.lovable.app\" target=\"_blank\" title=\"לאתר שלי\">בתיה מנביץ</a> · אופקים · 2026 · <a class=\"foot-link\" href=\"{{cv}}\" target=\"_blank\" download=\"קורות חיים - בתיה מנביץ.pdf\">קורות חיים (PDF)</a>"
+         }
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "header": {
+   "id": "header",
+   "kind": "header",
+   "nodes": [
+    {
+     "id": "nav",
+     "tag": "nav",
+     "name": "תפריט עליון",
+     "type": "section",
+     "children": [
+      {
+       "id": "nav-wrap",
+       "type": "container",
+       "classes": [
+        "wrap"
+       ],
+       "children": [
+        {
+         "id": "nav-brand",
+         "type": "button",
+         "props": {
+          "href": "#top",
+          "text": "בתיה מנביץ"
+         },
+         "classes": [
+          "brand",
+          "gold"
+         ]
+        },
+        {
+         "id": "nav-links",
+         "type": "menu",
+         "props": {
+          "items": [
+           {
+            "href": "#video",
+            "label": "סרטונים"
+           },
+           {
+            "href": "#sites",
+            "label": "אתרים"
+           },
+           {
+            "href": "#skills",
+            "label": "כלים"
+           },
+           {
+            "href": "#contact",
+            "label": "צרו קשר"
+           }
+          ]
+         },
+         "classes": [
+          "links"
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "home": {
+   "id": "home",
+   "kind": "page",
+   "nodes": [
+    {
+     "id": "hero",
+     "tag": "header",
+     "name": "פתיחה",
+     "type": "section",
+     "children": [
+      {
+       "id": "hero-wrap",
+       "type": "container",
+       "classes": [
+        "wrap"
+       ],
+       "children": [
+        {
+         "id": "hero-row",
+         "name": "שורה",
+         "type": "container",
+         "classes": [
+          "hero"
+         ],
+         "children": [
+          {
+           "id": "hero-text",
+           "name": "טקסט",
+           "type": "container",
+           "children": [
+            {
+             "id": "hero-h1",
+             "type": "heading",
+             "props": {
+              "html": "<span class=\"gold\">בתיה מנביץ</span>",
+              "level": 1
+             }
+            },
+            {
+             "id": "hero-role",
+             "type": "text",
+             "props": {
+              "html": "יוצרת וידאו, תוכן AI ודפי נחיתה"
+             },
+             "classes": [
+              "role"
+             ]
+            },
+            {
+             "id": "hero-btns",
+             "name": "כפתורים",
+             "type": "container",
+             "classes": [
+              "btns"
+             ],
+             "children": [
+              {
+               "id": "hero-btn1",
+               "type": "button",
+               "props": {
+                "href": "#video",
+                "text": "לעבודות שלי"
+               },
+               "classes": [
+                "btn",
+                "primary"
+               ]
+              },
+              {
+               "id": "hero-btn2",
+               "type": "button",
+               "props": {
+                "href": "https://wa.me/{{whatsapp}}",
+                "text": "וואטסאפ",
+                "newTab": true
+               },
+               "classes": [
+                "btn"
+               ]
+              }
+             ]
+            }
+           ]
+          },
+          {
+           "id": "hero-media",
+           "name": "שואוריל",
+           "type": "container",
+           "children": [
+            {
+             "id": "hero-phone",
+             "name": "טלפון",
+             "type": "container",
+             "classes": [
+              "phone",
+              "reel"
+             ],
+             "children": [
+              {
+               "id": "hero-inner",
+               "type": "container",
+               "classes": [
+                "inner"
+               ],
+               "children": [
+                {
+                 "id": "hero-reel",
+                 "type": "video",
+                 "props": {
+                  "src": "media/showreel.mp4",
+                  "loop": true,
+                  "reel": true,
+                  "zoom": true,
+                  "muted": true,
+                  "poster": "media/showreel.jpg",
+                  "autoplay": true
+                 }
+                }
+               ]
+              },
+              {
+               "id": "hero-sound",
+               "type": "button",
+               "props": {
+                "text": "🔇 הפעלת סאונד",
+                "action": "sound"
+               },
+               "classes": [
+                "sound"
+               ]
+              }
+             ]
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "videos",
+     "name": "סרטונים",
+     "type": "section",
+     "props": {},
+     "anchor": "video",
+     "children": [
+      {
+       "id": "videos-wrap",
+       "type": "container",
+       "props": {},
+       "classes": [
+        "wrap"
+       ],
+       "children": [
+        {
+         "id": "videos-eyebrow",
+         "type": "text",
+         "props": {
+          "tag": "div",
+          "html": "סרטונים"
+         },
+         "classes": [
+          "eyebrow"
+         ]
+        },
+        {
+         "id": "videos-h2",
+         "type": "heading",
+         "props": {
+          "html": "מודעות וסרטוני <span class=\"gold\">תדמית</span>",
+          "level": 2
+         }
+        },
+        {
+         "id": "videos-featured",
+         "name": "סרטון ראשי",
+         "type": "listing",
+         "props": {
+          "source": "featured"
+         }
+        },
+        {
+         "id": "videos-grid",
+         "name": "רשת סרטונים",
+         "type": "listing",
+         "props": {
+          "source": "site"
+         },
+         "classes": [
+          "videos"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "sites",
+     "name": "אתרים",
+     "type": "section",
+     "anchor": "sites",
+     "children": [
+      {
+       "id": "sites-wrap",
+       "type": "container",
+       "props": {},
+       "classes": [
+        "wrap"
+       ],
+       "children": [
+        {
+         "id": "sites-eyebrow",
+         "type": "text",
+         "props": {
+          "tag": "div",
+          "html": "אתרים"
+         },
+         "classes": [
+          "eyebrow"
+         ]
+        },
+        {
+         "id": "sites-h2",
+         "type": "heading",
+         "props": {
+          "html": "אתרים <span class=\"gold\">שבניתי</span>",
+          "level": 2
+         }
+        },
+        {
+         "id": "sites-featured",
+         "name": "אתר ראשי",
+         "type": "listing",
+         "props": {
+          "source": "featured-site"
+         }
+        },
+        {
+         "id": "sites-grid",
+         "name": "רשת אתרים",
+         "type": "listing",
+         "props": {
+          "source": "site"
+         },
+         "classes": [
+          "sites"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "skills",
+     "name": "יכולות וכלים",
+     "type": "section",
+     "anchor": "skills",
+     "children": [
+      {
+       "id": "skills-wrap",
+       "type": "container",
+       "classes": [
+        "wrap"
+       ],
+       "children": [
+        {
+         "id": "skills-eyebrow",
+         "type": "text",
+         "props": {
+          "tag": "div",
+          "html": "יכולות וכלים"
+         },
+         "classes": [
+          "eyebrow"
+         ]
+        },
+        {
+         "id": "skills-h2",
+         "type": "heading",
+         "props": {
+          "html": "יכולות <span class=\"gold\">וכלים</span>",
+          "level": 2
+         }
+        },
+        {
+         "id": "skills-grid",
+         "name": "כלים",
+         "type": "listing",
+         "props": {
+          "source": "skillgroup"
+         },
+         "classes": [
+          "skills"
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "id": "contact",
+     "name": "צרו קשר",
+     "type": "section",
+     "anchor": "contact",
+     "classes": [
+      "contact"
+     ],
+     "children": [
+      {
+       "id": "contact-wrap",
+       "type": "container",
+       "classes": [
+        "wrap"
+       ],
+       "children": [
+        {
+         "id": "contact-h2",
+         "type": "heading",
+         "props": {
+          "html": "צרו <span class=\"gold\">קשר</span>",
+          "level": 2
+         }
+        },
+        {
+         "id": "contact-btns",
+         "name": "כפתורים",
+         "type": "container",
+         "classes": [
+          "btns"
+         ],
+         "children": [
+          {
+           "id": "contact-wa",
+           "type": "button",
+           "props": {
+            "href": "https://wa.me/{{whatsapp}}",
+            "text": "וואטסאפ · {{phone}}",
+            "newTab": true
+           },
+           "classes": [
+            "btn",
+            "primary"
+           ]
+          },
+          {
+           "id": "contact-mail",
+           "type": "button",
+           "props": {
+            "href": "mailto:{{email}}",
+            "text": "{{email}}"
+           },
+           "classes": [
+            "btn"
+           ]
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "entries": [
+  {
+   "id": "promo",
+   "type": "video",
+   "status": "publish",
+   "sort": 0,
+   "data": {
+    "tags": [
+     "יצירת סרטונים",
+     "Claude Code"
+    ],
+    "badge": "סרטון תדמית",
+    "quote": "\"האתר שלך הוצאה? <span class=\"gold\">השקעה.</span>\"",
+    "title": "סרטון תדמית לאתר האישי שלי",
+    "video": "media/promo.mp4",
+    "poster": "media/promo.jpg",
+    "featured": true,
+    "description": "כתבתי תסריט ובחרתי צבעים, מוזיקה וסגנון; את הסרטון בניתי כאנימציה, כולל תלת־ממד."
+   },
+   "revision": 1,
+   "updated_at": "2026-11-05T08:04:21.290701+00:00"
+  },
+  {
+   "id": "site-lavi",
+   "type": "site",
+   "status": "publish",
+   "sort": 0,
+   "data": {
+    "cta": "לאתר ←",
+    "href": "https://lavi-katan-bashamayim.vercel.app",
+    "title": "\"לביא קטן בשמיים\"",
+    "video": "media/sites/lavi-katan.mp4",
+    "poster": "media/sites/lavi-katan.jpg",
+    "description": "דף נחיתה לספר של הסופרת ברוריה נוסבוים"
+   },
+   "revision": 1,
+   "updated_at": "2026-11-05T08:04:21.290701+00:00"
+  },
+  {
+   "id": "skill-web",
+   "type": "skillgroup",
+   "status": "publish",
+   "sort": 0,
+   "data": {
+    "tags": [
+     "Claude Code",
+     "Lovable",
+     "אפיון ממשקים",
+     "העלאת אתרים לאוויר"
+    ],
+    "title": "בניית אתרים"
+   },
+   "revision": 1,
+   "updated_at": "2026-11-05T08:04:21.290701+00:00"
+  },
+  {
+   "id": "eilat",
+   "type": "video",
+   "status": "publish",
+   "sort": 1,
+   "data": {
+    "title": "סרטון קונספט למצפה התת־ימי אילת",
+    "video": "media/eilat.mp4",
+    "poster": "media/eilat.jpg",
+    "description": "ריל למשפחות מצילומים שלי. ערכתי ב-CapCut, וליטוש סופי בעזרת AI."
+   },
+   "revision": 1,
+   "updated_at": "2026-11-05T08:04:21.290701+00:00"
+  },
+  {
+   "id": "site-toli",
+   "type": "site",
+   "status": "publish",
+   "sort": 1,
+   "data": {
+    "cta": "לאתר ←",
+    "href": "https://batyamanevitz-debug.github.io/toli-campaign",
+    "title": "קמפיין \"תולי\"",
+    "video": "media/sites/toli-campaign.mp4",
+    "poster": "media/sites/toli-campaign.jpg",
+    "description": "אתר בסגנון סיפור בפרקים עם סרטון ומוזיקה, מסך הצבעה, שיתוף לוואטסאפ ולרשתות, ומעבר בין עברית לאנגלית"
+   },
+   "revision": 1,
+   "updated_at": "2026-11-05T08:04:21.290701+00:00"
+  },
+  {
+   "id": "skill-media",
+   "type": "skillgroup",
+   "status": "publish",
+   "sort": 1,
+   "data": {
+    "tags": [
+     "Magnific",
+     "יצירת סרטונים",
+     "Google Analytics"
+    ],
+    "title": "מדיה ושיווק"
+   },
+   "revision": 1,
+   "updated_at": "2026-11-05T08:04:21.290701+00:00"
+  },
+  {
+   "id": "lavi",
+   "type": "video",
+   "status": "publish",
+   "sort": 2,
+   "data": {
+    "link": {
+     "href": "https://youtube.com/shorts/wPgUk59AhzM",
+     "label": "ביוטיוב ←"
+    },
+    "title": "\"לביא קטן בשמיים\"",
+    "video": "media/lavi.mp4",
+    "poster": "media/lavi.jpg",
+    "description": "סרטון קידום לרשתות עם מוזיקה, עבור הסופרת ברוריה נוסבוים. את התמונות יצרתי ב-Magnific."
+   },
+   "revision": 1,
+   "updated_at": "2026-11-05T08:04:21.290701+00:00"
+  },
+  {
+   "id": "site-pizza",
+   "type": "site",
+   "status": "publish",
+   "sort": 2,
+   "data": {
+    "cta": "לאתר ←",
+    "href": "https://pizza-delivery-ofakim.vercel.app",
+    "title": "פיצה בדרום",
+    "video": "media/sites/pizza-delivery-ofakim.mp4",
+    "poster": "media/sites/pizza-delivery-ofakim.jpg",
+    "description": "דף נחיתה לפיצה במשלוח באופקים, עם סרטונים ואנימציה שזזה עם הגלילה"
+   },
+   "revision": 1,
+   "updated_at": "2026-11-05T08:04:21.290701+00:00"
+  },
+  {
+   "id": "skill-personal",
+   "type": "skillgroup",
+   "status": "publish",
+   "sort": 2,
+   "data": {
+    "tags": [
+     "למידה מהירה",
+     "יצירתיות",
+     "עבודה בצוות",
+     "הוצאת רעיונות לפועל"
+    ],
+    "title": "כישורים אישיים"
+   },
+   "revision": 2,
+   "updated_at": "2026-11-05T09:31:29.465+00:00"
+  },
+  {
+   "id": "pizza",
+   "type": "video",
+   "status": "publish",
+   "sort": 3,
+   "data": {
+    "link": {
+     "href": "https://youtube.com/shorts/kn7iqCI5uTQ",
+     "label": "ביוטיוב ←"
+    },
+    "title": "סרטון תדמית לאתר הפיצה",
+    "video": "media/pizza.mp4",
+    "poster": "media/pizza.jpg",
+    "description": "אנימציה, כולל תלת־ממד."
+   },
+   "revision": 1,
+   "updated_at": "2026-11-05T08:04:21.290701+00:00"
+  },
+  {
+   "id": "site-secquote",
+   "type": "site",
+   "status": "publish",
+   "sort": 3,
+   "data": {
+    "cta": "למערכת ←",
+    "href": "https://sec-quote-ai.vercel.app",
+    "title": "AI SecQuote",
+    "video": "media/sites/secquote.mp4",
+    "poster": "media/sites/secquote.jpg",
+    "description": "מערכת חכמה להצעות מחיר בסייבר: הרשמה, שאלון אפיון ללקוח, הצעת מחיר שמנוסחת בעזרת AI"
+   },
+   "revision": 1,
+   "updated_at": "2026-11-05T08:04:21.290701+00:00"
+  },
+  {
+   "id": "adi",
+   "type": "video",
+   "status": "publish",
+   "sort": 4,
+   "data": {
+    "title": "סרטון קונספט לאתר של מניקוריסטית",
+    "video": "media/adi.mp4",
+    "poster": "media/adi.jpg",
+    "description": "Adi Nail Atelier"
+   },
+   "revision": 1,
+   "updated_at": "2026-11-05T08:04:21.290701+00:00"
+  },
+  {
+   "id": "site-reel",
+   "type": "site",
+   "status": "publish",
+   "sort": 4,
+   "data": {
+    "cta": "לכלי ←",
+    "href": "https://site-to-reel.vercel.app/",
+    "title": "Site → Reel",
+    "video": "media/sites/site-to-reel.mp4",
+    "poster": "media/sites/site-to-reel.jpg",
+    "description": "כלי שהופך אתר לסרטון רילס: מדביקים לינק ומקבלים סרטון גלילה מוכן להורדה"
+   },
+   "revision": 1,
+   "updated_at": "2026-11-05T08:04:21.290701+00:00"
+  },
+  {
+   "id": "site-me",
+   "type": "site",
+   "status": "publish",
+   "sort": 5,
+   "data": {
+    "cta": "לאתר ←",
+    "href": "https://batyamanevitz.lovable.app",
+    "tags": [
+     "Lovable",
+     "שאלון AI",
+     "מותאם לטלפון"
+    ],
+    "badge": "אתר תדמית",
+    "quote": "\"האתר שלך הופך <span class=\"gold\">מהוצאה להשקעה</span>\"",
+    "title": "בתיה מנביץ · בניית אתרים",
+    "video": "media/sites/batya-personal.mp4",
+    "poster": "media/sites/batya-personal.jpg",
+    "featured": true,
+    "description": "אתר התדמית שלי לבניית אתרים לעסקים: למה לבחור בי, תהליך עבודה ב-4 שלבים, שאלות נפוצות, ושאלון אפיון חכם עם AI."
+   },
+   "revision": 3,
+   "updated_at": "2026-11-05T10:48:32.641765+00:00"
+  }
+ ],
+ "settings": {
+  "contact": {
+   "email": "batyamanevitz@gmail.com",
+   "phone": "053-550-6375",
+   "whatsapp": "972535506375"
+  },
+  "cv": {
+   "url": "media/batya-manevitz-cv.pdf"
+  },
+  "seo": {
+   "image": "media/showreel.jpg",
+   "title": "בתיה מנביץ · תיק עבודות",
+   "description": "תיק העבודות של בתיה מנביץ – יוצרת וידאו, תוכן AI ודפי נחיתה: סרטוני תדמית וקידום ואתרים."
+  }
+ },
+ "stamp": "footer1,header1,home3|promo:1:0,site-lavi:1:0,skill-web:1:0,eilat:1:1,site-toli:1:1,skill-media:1:1,lavi:1:2,site-pizza:1:2,skill-personal:2:2,pizza:1:3,site-secquote:1:3,adi:1:4,site-reel:1:4,site-me:3:5|[{\"key\":\"contact\",\"value\":{\"email\":\"batyamanevitz@gmail.com\",\"phone\":\"053-550-6375\",\"whatsapp\":\"972535506375\"}},{\"key\":\"cv\",\"value\":{\"url\":\"media/batya-manevitz-cv.pdf\"}},{\"key\":\"seo\",\"value\":{\"image\":\"media/showreel.jpg\",\"title\":\"בתיה מנביץ · תיק עבודות\",\"description\":\"תיק העבודות של בתיה מנביץ – יוצרת וידאו, תוכן AI ודפי נחיתה: סרטוני תדמית וקידום ואתרים.\"}}]"
+}
