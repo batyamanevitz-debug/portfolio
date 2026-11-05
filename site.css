@@ -119,6 +119,8 @@
     .hero > div:last-child { width: min(330px, 100%); }
     .hero .btns, .featured .tags, .featured .more, .featured .btns { justify-content: center; }
     .featured { padding: 22px 16px; gap: 24px; }
+    /* טלפון וטאבלט: קודם הטקסט (מה זה), ואז הסרטון */
+    .featured > .phone { order: 2; }
     nav .links { gap: 14px; font-size: 14px; }
   }
   @media (max-width: 380px) {
