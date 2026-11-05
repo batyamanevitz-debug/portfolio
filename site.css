@@ -98,14 +98,17 @@
   @media (max-width: 600px) {
     section { padding-top: 44px; }
     .videos, .sites { gap: 14px; }
+    /* טלפון: אתר אחד בשורה, ברוחב של טלפון – כדי שהטקסט יהיה קריא והסרטון לא ענק */
+    .sites { grid-template-columns: 1fr; max-width: 300px; gap: 22px; }
     .vcard, .site { padding: 8px; border-radius: 18px; }
     .vcard video, .site video { border-radius: 12px; }
     .vcard h3 { font-size: 15.5px; margin: 4px 2px 0; }
     .vcard p { font-size: 13.5px; margin: 0 2px; }
     .vcard .more { margin: 2px 2px 2px; }
-    .site b { font-size: 16px; margin: 10px 2px 2px; }
-    .site span { font-size: 13.5px; line-height: 1.5; margin: 0 2px 8px; }
-    .site .go { font-size: 14px; margin: 0 2px 2px; }
+    .site { padding: 10px; }
+    .site b { font-size: 18px; margin: 12px 4px 4px; }
+    .site span { font-size: 15px; line-height: 1.55; margin: 0 4px 10px; }
+    .site .go { font-size: 15px; margin: 0 4px 4px; }
     .skill { padding: 18px; }
     .btn { padding: 12px 20px; font-size: 15px; }
   }
@@ -119,7 +122,7 @@
     nav .links { gap: 14px; font-size: 14px; }
   }
   @media (max-width: 380px) {
-    .videos, .sites { gap: 10px; }
+    .videos { gap: 10px; }
     nav .brand { font-size: 17px; }
     nav .links { gap: 10px; font-size: 13px; }
   }
