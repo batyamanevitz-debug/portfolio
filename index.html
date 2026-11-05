@@ -74,7 +74,7 @@
   .featured .quote { font-size: clamp(22px, 2.8vw, 30px); font-weight: 800; margin: 0 0 14px; }
   .featured p { margin: 0 0 18px; }
 
-  .videos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; }
+  .videos { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; }
   .vcard { background: var(--card); border: 1px solid var(--line); border-radius: 24px; padding: 12px; display: flex; flex-direction: column; gap: 8px; }
   .vcard video { width: 100%; aspect-ratio: 9/16; object-fit: cover; border-radius: 16px; background: #000; display: block; }
   .vcard h3 { font-size: 18px; margin: 6px 4px 0; }
@@ -100,12 +100,6 @@
   .foot-link { color: var(--gold-l); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s; }
   .foot-link:hover { border-bottom-color: var(--gold-l); }
 
-  /* מחשב קטן: 4 סרטונים עדיין בשורה, רווח קטן יותר */
-  @media (max-width: 1100px) {
-    .videos { gap: 16px; }
-    .vcard h3 { font-size: 16.5px; }
-    .vcard p { font-size: 14px; }
-  }
   /* טאבלט וטלפון: 2 בשורה, ברוחב מוגבל באמצע – כדי שהכרטיסים לא יהיו ענקיים */
   @media (max-width: 900px) {
     .videos, .sites { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 640px; margin-inline: auto; }
