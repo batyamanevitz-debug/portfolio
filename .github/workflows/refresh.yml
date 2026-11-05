@@ -1,0 +1,26 @@
+# פעם ביום: מושך את התוכן המפורסם מ-Supabase, בונה מחדש את הגיבוי (index.html + content.json)
+# ושומר אותו. גם שומר על פרויקט Supabase החינמי ער (בלי זה הוא נכנס להשהיה אחרי שבוע).
+name: refresh-backup
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: node tools/pull.mjs
+      - name: commit if changed
+        run: |
+          if git diff --quiet -- content.json index.html; then echo "no changes"; exit 0; fi
+          git config user.name "portfolio-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add content.json index.html
+          git commit -m "Refresh backup from Supabase"
+          git push
