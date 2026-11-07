@@ -19,7 +19,7 @@
          "type": "text",
          "props": {
           "tag": "div",
-          "html": "<a class=\"foot-link\" href=\"https://batyamanevitz.lovable.app\" target=\"_blank\" title=\"לאתר שלי\">בתיה מנביץ</a> · אופקים · 2026 · <a class=\"foot-link\" href=\"{{cv}}\" target=\"_blank\" download=\"קורות חיים - בתיה מנביץ.pdf\">קורות חיים (PDF)</a>"
+          "html": "<a class=\"foot-link\" href=\"https://batyamanevitz.lovable.app\" target=\"_blank\" title=\"לאתר שלי\">בתיה מנביץ</a> · אופקים · 2026"
          }
         }
        ]
@@ -728,5 +728,5 @@
    "description": "תיק העבודות של בתיה מנביץ – יוצרת וידאו, תוכן AI ודפי נחיתה: סרטוני תדמית וקידום ואתרים."
   }
  },
- "stamp": "footer1,header1,home6|promo:1:0,site-lavi:1:0,skill-web:1:0,eilat:1:1,site-toli:1:1,skill-media:1:1,lavi:1:2,site-pizza:1:2,skill-personal:2:2,pizza:1:3,site-secquote:1:3,adi:1:4,site-reel:1:4,site-me:3:5|[{\"key\":\"contact\",\"value\":{\"email\":\"batyamanevitz@gmail.com\",\"phone\":\"053-550-6375\",\"whatsapp\":\"972535506375\"}},{\"key\":\"cv\",\"value\":{\"url\":\"media/batya-manevitz-cv.pdf\"}},{\"key\":\"seo\",\"value\":{\"image\":\"media/showreel.jpg\",\"title\":\"בתיה מנביץ · תיק עבודות\",\"description\":\"תיק העבודות של בתיה מנביץ – יוצרת וידאו, תוכן AI ודפי נחיתה: סרטוני תדמית וקידום ואתרים.\"}}]"
+ "stamp": "footer2,header1,home6|promo:1:0,site-lavi:1:0,skill-web:1:0,eilat:1:1,site-toli:1:1,skill-media:1:1,lavi:1:2,site-pizza:1:2,skill-personal:2:2,pizza:1:3,site-secquote:1:3,adi:1:4,site-reel:1:4,site-me:3:5|[{\"key\":\"contact\",\"value\":{\"email\":\"batyamanevitz@gmail.com\",\"phone\":\"053-550-6375\",\"whatsapp\":\"972535506375\"}},{\"key\":\"cv\",\"value\":{\"url\":\"media/batya-manevitz-cv.pdf\"}},{\"key\":\"seo\",\"value\":{\"image\":\"media/showreel.jpg\",\"title\":\"בתיה מנביץ · תיק עבודות\",\"description\":\"תיק העבודות של בתיה מנביץ – יוצרת וידאו, תוכן AI ודפי נחיתה: סרטוני תדמית וקידום ואתרים.\"}}]"
 }
